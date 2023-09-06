@@ -1,10 +1,4 @@
-
-
-
-console.log("Webpack???")
-
-const hellow = document.createElement("p");
-hellow.innerText = "Hello World!";
-
-const app = document.getElementById("root");
-app.appendChild(hellow);
+import React from 'react';
+import App from './src/App';
+import { createRoot } from 'react-dom/client'
+createRoot(document.getElementById('root')).render(<App/>,);

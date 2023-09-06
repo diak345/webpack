@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './index.js',
     mode: 'production',
-
+    performance: { hints: false } ,
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'bundle.js',
@@ -18,4 +18,18 @@ module.exports = {
         hot: true,
         liveReload: true,
     },
+    module: {
+        rules: [
+          {
+            test: /\.(js|mjs|cjs)$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ["@babel/preset-env", "@babel/preset-react"]
+              }
+            }
+          }
+        ]
+      }
 };
